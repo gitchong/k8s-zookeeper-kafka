@@ -12,3 +12,19 @@ spec:
   selector:
     app: kafka
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-svc-out
+  labels:
+    app: kafka
+spec:
+  type: NodePort
+  ports:
+  - port: 9093
+    targetPort: 9093
+    nodePort: 39033
+    name:kafka
+  selector:
+    app: kafka
+---
